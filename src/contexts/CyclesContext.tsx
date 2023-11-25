@@ -44,17 +44,14 @@ export function CyclesContextProvider({
       cycles: [],
       activeCycleId: null,
     },
-    () => {
+    (initialState) => {
       const storedStateAsJSON = localStorage.getItem(
         '@pomotimer:cycles-state-1.0.0',
       )
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON)
       }
-      return {
-        cycles: [],
-        activeCycleId: null,
-      }
+      return initialState
     },
   )
 
